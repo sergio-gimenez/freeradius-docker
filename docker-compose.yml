@@ -1,19 +1,19 @@
 version: "3"
 
 services:
-  my-radius:
+  freeradius:
     build:
       context: .
       dockerfile: Dockerfile.freeradius
-    image: my-radius-image
-    container_name: my-radius
+    image: freeradius
+    container_name: freeradius
     ports:
       - "1812-1813:1812-1813/udp"
     command: -X # Enable debugging output
     restart: unless-stopped
-    networks:
-      - nginx-radius
+#     networks:
+#       - nginx-radius
 
-networks:
-  nginx-radius:
-    external: true
+# networks:
+#   nginx-radius:
+#     external: true
